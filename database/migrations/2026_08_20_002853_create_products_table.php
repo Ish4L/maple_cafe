@@ -15,9 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('category', 100);
             $table->string('product_name', 100)->unique();
-            $table->string('price', 50);
-            $table->string('description', 255);
+            $table->integer('price');
+            $table->text('description');
             $table->string('image', 255);
+            $table->enum('status', ['active', 'inactive'])->default('active');
             // $table->timestamps();
         });
     }
