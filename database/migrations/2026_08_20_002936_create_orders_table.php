@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->string('customer_name', 100);
+            $table->string('customer_name', 255);
             $table->string('phone', 20);
+            $table->enum('order_type', ['dine_in', 'takeaway'])->default('dine_in');
             $table->decimal('total_price', 12, 2);
             $table->enum('status', ['pending', 'processing', 'completed', 'cancelled'])->default('pending');
             $table->timestamps();
